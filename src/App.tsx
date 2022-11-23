@@ -30,10 +30,14 @@ function App() {
       }
     ])
   }
+  function deleteTaskById(taskId: string) {
+    const newTasks = dbTasks.filter(deleteTask =>deleteTask.id != taskId);
+    setDbTasks(newTasks);
+  }
   return (
     <>
       <Header onAddTask = {addTask}/>
-      <Tasks tasks={dbTasks} />  
+      <Tasks tasks={dbTasks} onDelete={deleteTaskById}/>  
     </>
   );
 }

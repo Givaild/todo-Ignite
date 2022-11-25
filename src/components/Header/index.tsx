@@ -5,6 +5,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 
 interface Props {
   onAddTask:(taskTitle:string) => void
+  
 }
 
 export function Header({onAddTask}:Props) {
@@ -16,7 +17,7 @@ export function Header({onAddTask}:Props) {
     onAddTask(title);
     setTitle('')
   }
-  
+
   function onChangeTitle(event: ChangeEvent<HTMLInputElement>){
     setTitle(event.target.value)
   }

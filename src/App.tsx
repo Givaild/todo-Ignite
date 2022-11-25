@@ -30,14 +30,27 @@ function App() {
       }
     ])
   }
-  function deleteTaskById(taskId: string) {
-    const newTasks = dbTasks.filter(deleteTask =>deleteTask.id != taskId);
+  function deleteTaskById(taskDeleteId: string) {
+    const newTasks = dbTasks.filter(deleteTask =>deleteTask.id != taskDeleteId);
+    setDbTasks(newTasks);
+  }
+
+  function toggleTaskCompletedById(completedTaskId:string) {
+    const newTasks = dbTasks.map(toogleTask=>{
+     if(toogleTask.id === completedTaskId){
+      return{
+        ...toogleTask,
+        isCompleted: !toogleTask.isCompleted,
+      };
+     }
+     return toogleTask 
+    });
     setDbTasks(newTasks);
   }
   return (
     <>
       <Header onAddTask = {addTask}/>
-      <Tasks tasks={dbTasks} onDelete={deleteTaskById}/>  
+      <Tasks tasks={dbTasks} onDelete={deleteTaskById} onComplete={toggleTaskCompletedById}/>  
     </>
   );
 }

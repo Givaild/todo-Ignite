@@ -19,7 +19,7 @@ export function Task({task,onDelete,onComplete}: Props) {
                 {task.isCompleted ? <BsFillCheckCircleFill />: <div/>}
             </button>
 
-            <p>{task.title}</p>
+            <p className={task.isCompleted ? styles.textCompleted : ""}>{task.title}</p>
 
             <button className={styles.deleteButton} onClick={()=>onDelete(task.id)}>
                 <TbTrash size={20}/> 

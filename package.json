@@ -3,8 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "github-page/",
-  "scripts": {
+    "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
